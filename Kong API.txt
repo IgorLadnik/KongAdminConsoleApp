@@ -1,0 +1,21 @@
+
+How to Run Kong?
+
+1.       Start VM and Ubuntu there.
+
+2.       Open terminal and go to directory  igorl@igorl:/etc/kong
+
+3.       igorl@igorl:/etc/kong$ sudo kong start
+
+similarly:
+
+igorl@igorl:/etc/kong$ sudo kong stop
+
+4.       Browse on
+
+http://localhost:8002/default/dashboard
+
+to open Web dashboard of Kong.
+
+
+curl -X POST http://localhost:8001/services/admin-api/routes --data paths\=/admin-api
