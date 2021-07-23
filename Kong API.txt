@@ -1,4 +1,3 @@
-
 How to Run Kong?
 
 1.       Start VM and Ubuntu there.
