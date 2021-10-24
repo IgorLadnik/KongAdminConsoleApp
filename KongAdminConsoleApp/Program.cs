@@ -39,10 +39,10 @@ namespace KongAdminConsoleApp
             //}
 
             {
-                var client = new RestClientEx("https://192.168.14.118:8443/k",
+                RestClientEx client = new("https://192.168.14.118:8443/k",
                     (object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors) => true);
                 client.Timeout = -1;
-                var request = new RestRequest(Method.GET);
+                RestRequest request = new(Method.GET);
                 request.AddHeader("auth", "kanpur");
                 //request.AddHeader("Cookie", "d8fdb0c7bbb290989fe5b71584d38355=bn2pn83p1a6kklp8cd34fv6n74");
                 var response = client.Execute(request);
@@ -50,14 +50,17 @@ namespace KongAdminConsoleApp
             }
 
             {
-                var client = new RestClientEx("https://192.168.14.118:8443/mb");
+                RestClientEx client = new("https://192.168.14.118:8443/mb");
                 client.Timeout = -1;
-                var request = new RestRequest(Method.GET);
+                RestRequest request = new(Method.GET);
                 request.AddHeader("auth", "mb");
                 //request.AddHeader("Cookie", "d8fdb0c7bbb290989fe5b71584d38355=c4055abjjngtip967h56bqg7q3");
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
             }
+
+            Console.WriteLine("\n\nPress any key to quit...");
+            Console.ReadKey();
         }
     }
 }

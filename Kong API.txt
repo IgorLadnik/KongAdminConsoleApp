@@ -2,13 +2,13 @@ How to Run Kong?
 
 1.       Start VM and Ubuntu there.
 
-2.       Open terminal and go to directory  igorl@igorl:/etc/kong
+2.       Open terminal and go to directory  igorl@igorl~/kong$
 
-3.       igorl@igorl:/etc/kong$ sudo kong start
+3.       igorl@igorl~/kong$ sudo kong start
 
 similarly:
 
-igorl@igorl:/etc/kong$ sudo kong stop
+igorl@igorl:~/kong$ sudo kong stop
 
 4.       Browse on
 
