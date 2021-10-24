@@ -38,9 +38,24 @@ namespace KongAdminConsoleApp
             //    Console.WriteLine(response.Content);
             //}
 
+            const string ip = "192.168.14.118";
+
+            //{
+            //    RestClientEx client = new($"http://{ip}:8002/default/certificates");
+            //    RestRequest request = new(Method.GET);
+            //    request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            //    var response = client.Execute(request);
+            //    Console.WriteLine(response.Content);
+            //}
+
             {
-                RestClientEx client = new("https://192.168.14.118:8443/k",
-                    (object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors) => true);
+                RestClientEx client = new($"https://{ip}:8443/k",
+                    (object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors) => 
+                    {
+                        Console.WriteLine($"\nCertificate:\n{certificate}");
+                        Console.WriteLine($"\nChain:\n{chain}\n\n");
+                        return true; 
+                    });
                 client.Timeout = -1;
                 RestRequest request = new(Method.GET);
                 request.AddHeader("auth", "kanpur");
@@ -50,7 +65,7 @@ namespace KongAdminConsoleApp
             }
 
             {
-                RestClientEx client = new("https://192.168.14.118:8443/mb");
+                RestClientEx client = new($"https://{ip}:8443/mb");
                 client.Timeout = -1;
                 RestRequest request = new(Method.GET);
                 request.AddHeader("auth", "mb");
